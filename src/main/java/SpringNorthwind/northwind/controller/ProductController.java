@@ -2,12 +2,10 @@ package SpringNorthwind.northwind.controller;
 
 import SpringNorthwind.northwind.business.concretes.ProductManager;
 import SpringNorthwind.northwind.core.utilities.results.DataResult;
+import SpringNorthwind.northwind.core.utilities.results.Result;
 import SpringNorthwind.northwind.entities.concretes.Product;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,10 +22,17 @@ public class ProductController {
 
     @GetMapping("/getAll")
     public DataResult<List<Product>> getAll(){
-        return productManager.getAll();
+        return
+                productManager.getAll();
     }
     @GetMapping("/{id}")
     public Optional<Product> getProductById(@PathVariable int id){
-        return productManager.getProductById(id);
+        return
+                productManager.getProductById(id);
+    }
+    @PostMapping("/add")
+    public Result add(@RequestBody Product product){
+        return
+                productManager.add(product);
     }
 }

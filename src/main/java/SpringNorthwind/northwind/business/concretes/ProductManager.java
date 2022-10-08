@@ -2,6 +2,7 @@ package SpringNorthwind.northwind.business.concretes;
 
 import SpringNorthwind.northwind.business.abstracts.ProductService;
 import SpringNorthwind.northwind.core.utilities.results.DataResult;
+import SpringNorthwind.northwind.core.utilities.results.Result;
 import SpringNorthwind.northwind.core.utilities.results.SuccessDataResult;
 import SpringNorthwind.northwind.core.utilities.results.SuccessResult;
 import SpringNorthwind.northwind.entities.concretes.Product;
@@ -27,7 +28,15 @@ public class ProductManager implements ProductService {
     }
 
     @Override
+    public Result add(Product product) {
+        productRepository.save(product);
+        return
+                new SuccessResult("Ürün Eklendi: "+product.getProductName());
+    }
+
+    @Override
     public Optional<Product> getProductById(int id) {
-        return productRepository.findById(id);
+        return
+                productRepository.findById(id);
     }
 }
