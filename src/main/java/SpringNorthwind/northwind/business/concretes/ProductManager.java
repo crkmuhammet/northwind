@@ -1,6 +1,9 @@
 package SpringNorthwind.northwind.business.concretes;
 
 import SpringNorthwind.northwind.business.abstracts.ProductService;
+import SpringNorthwind.northwind.core.utilities.results.DataResult;
+import SpringNorthwind.northwind.core.utilities.results.SuccessDataResult;
+import SpringNorthwind.northwind.core.utilities.results.SuccessResult;
 import SpringNorthwind.northwind.entities.concretes.Product;
 import org.springframework.stereotype.Service;
 import SpringNorthwind.northwind.repository.abstracts.ProductRepository;
@@ -18,8 +21,9 @@ public class ProductManager implements ProductService {
 
 
     @Override
-    public List<Product> getAll() {
-        return productRepository.findAll();
+    public DataResult<List<Product>> getAll() {
+        return
+                new SuccessDataResult<List<Product>>(productRepository.findAll(),"Veriler Listelendi!");
     }
 
     @Override

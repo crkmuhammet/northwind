@@ -7,9 +7,12 @@ public class DataResult<T> extends Result{
         this.data=data;
     }
 
-    public DataResult(boolean success) {
+    public DataResult(boolean success, T data) {
         super(success);
+        this.data=data;
     }
 
-
+    public T getData() {
+        return data;
+    }
 }

@@ -1,6 +1,7 @@
 package SpringNorthwind.northwind.controller;
 
 import SpringNorthwind.northwind.business.concretes.ProductManager;
+import SpringNorthwind.northwind.core.utilities.results.DataResult;
 import SpringNorthwind.northwind.entities.concretes.Product;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +23,7 @@ public class ProductController {
     }
 
     @GetMapping("/getAll")
-    public List<Product> getAll(){
+    public DataResult<List<Product>> getAll(){
         return productManager.getAll();
     }
     @GetMapping("/{id}")
